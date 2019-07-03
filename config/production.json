@@ -1,0 +1,11 @@
+{
+    "name": "Gadget Village",
+    "mail": {
+        "host": ""
+    },
+    "domain": {
+        "redirectowww": false,
+        "redirectohttps": true,
+        "wwwredirecto": false
+    }
+}

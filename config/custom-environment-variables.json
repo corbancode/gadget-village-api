@@ -1,0 +1,8 @@
+{
+    "mail": {
+        "password": "app_password"
+    },
+    "db": {
+        "password": "app_db_password"
+    }
+}
