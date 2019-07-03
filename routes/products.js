@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const productValidator = require('../utils/validators/product-validators');
-const response = require('../utils/response');
-const responseMessages = require('../utils/response-messages');
-const productRepository = require('../repositories/product-repository');
+const productController = require('../controllers/product-controller');
 
 const products = [
     {id: 1, type: 'auction', name: 'Iphone 6, 32 gig rom'},
@@ -31,19 +28,6 @@ router.get('/:type/:id', (req, res) => {
 });
 
 router.post('/:type', (req, res) => {
-    productValidator.validateCreateProduct(req.body).then((succ) => {
-        const product = {
-            name: req.body.name,
-            type: req.params.type
-        };
-        const newProduct = productRepository.createProduct(product);
-        response.successResponseMsg(res, responseMessages.productResponseMessages.productCreated, newProduct);
-        
-    }, (err) => {
-        response.errorResponseMsg(res, 400, err.message);
-    }).catch((err) => {
-        response.errorResponseMsg(res, 400, err.message);
-    });
-    
+    productController.create(req, res);    
 });
 module.exports = router;
