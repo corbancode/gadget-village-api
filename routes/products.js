@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const productController = require('../controllers/product-controller');
+const productController = require('../app/controllers/product-controller');
 
 const products = [
     {id: 1, type: 'auction', name: 'Iphone 6, 32 gig rom'},
