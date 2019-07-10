@@ -1,7 +1,9 @@
 {
     "name": "Gadget Village",
     "mail": {
-        "host": ""
+        "host": "smtp.domain.com",
+        "port": 26,
+        "username": "me@domain.com"
     },
     "domain": {
         "redirectowww": false,
