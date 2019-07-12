@@ -7,7 +7,20 @@ async function createProduct(params) {
     });
 
     return await product.save();
-    //return result;
+}
+
+async function getProducts() {
+    const product = new productModel.Product.find();
+
+    return await product;
+}
+
+async function getProductsByType(type) {
+    const product = new productModel.Product.find({ type: type });
+
+    return await product;
 }
 
 module.exports.createProduct = createProduct;
+module.exports.getProducts = getProducts;
+module.exports.getProductsByType = getProductsByType;

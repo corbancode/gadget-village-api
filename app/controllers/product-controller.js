@@ -22,4 +22,23 @@ async function create(req, res) {
     });
 }
 
+async function get(req, res) {
+    productRepository.getProducts().then((data) => {
+        response.successResponseMsg(res, responseMessages.productResponseMessages.productCreated, data);
+    }, (err) => {
+        response.errorResponseMsg(res, 200, err.message);
+    });
+}
+
+async function getByType(req, res) {
+    const type = req.params.type;
+    productRepository.getProductsByType(type).then((data) => {
+    response.successResponseMsg(res, responseMessages.productResponseMessages.productCreated, data);
+    }, (err) => {
+        response.errorResponseMsg(res, 200, err.message);
+    });
+}
+
 module.exports.create = create;
+module.exports.get = get;
+module.exports.getByType = getByType;
