@@ -4,7 +4,9 @@ const config = require('config');
 
 
 mongoose.connect(`mongodb+srv://gadget_village:${encodeURI(config.get('db.password'))}@gadgetvillage-z7ykd.mongodb.net/test?retryWrites=true&w=majority`, (err) => {
-    console.log(err)
+    if (err) {
+        console.log(err)
+    }    
 })
 .then((succ) => {
     dbDebugger('Database Connected');
