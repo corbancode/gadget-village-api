@@ -9,5 +9,7 @@
         "redirectowww": false,
         "redirectohttps": true,
         "wwwredirecto": false
-    }
+    },
+    "productTypes": ["auction", "buy now pay later", "buy now"],
+    "paymentMethods": ["pay online", "pay on delivery", "both"]
 }

@@ -1,11 +1,20 @@
 const Joi = require('joi');
+const config = require('config');
 
-const productTypes = ['auction', 'buy now pay later', 'logistic repair'];
+const productTypes = config.get('productTypes');
+const paymentMethods = config.get('paymentMethods');
 
 const validateCreateProduct = (body) => {
     const productSchema = Joi.object().keys({
-        name: Joi.string().min(3).max(30).required(),
-        type: Joi.string().required().only(productTypes)
+        type: Joi.string().required().only(productTypes),
+        title: Joi.string().min(3).max(256).required(),
+        description: Joi.string().min(25).required(),
+        price: Joi.number().min(0).required(),
+        avatars: Joi.array().min(1).max(8).required(),
+        payment_method: Joi.string().required().only(paymentMethods),
+        bidding_increment: Joi.number(),
+        bidding_start_date: Joi.date().min('now'),
+        bidding_end_date: Joi.date().min(body.bidding_start_date),
     });
     
     return new Promise((resolve, reject) => {

@@ -1,19 +1,12 @@
 const {mongoose} = require('../db-connection');
 
-const userSchema = new mongoose.Schema({
-    fullname: {
+const merchantSchema = new mongoose.Schema({
+    name: {
         type: String, 
         required: true,
         minlength: 3,
         maxlength: 150
     },
-    username: {
-        type: String, 
-        required: true,
-        minlength: 3,
-        maxlength: 50
-    },
-    password: String,
     email: {
         type: String,
         required: true,
@@ -26,7 +19,7 @@ const userSchema = new mongoose.Schema({
         match: /^[0]+[0-9]{10}$/,
         trim: true
     },
-    date_of_birth: Date,
+    logo: {type: String, required:true},
     confirmation_token: {type: String},
     active: {type: Boolean, default: true},
     confirmed_at: {type: Date, default: null},
@@ -34,6 +27,6 @@ const userSchema = new mongoose.Schema({
     updated_at: {type: Date, default: Date.now},
 });
 
-const User = mongoose.model('User', userSchema);
+const Merchant = mongoose.model('Merchant', merchantSchema);
 
-module.exports.User = User;
+module.exports.Merchant = Merchant;

@@ -6,14 +6,16 @@ async function getProducts(pageNumber = 1, pageSize = 10) {
                                 .find()
                                 .skip((pageNumber - 1) * pageSize)
                                 .limit(pageSize)
-                                .sort({created_at: -1});
+                                .sort({created_at: -1})
+                                .populate('merchant');
 
     return await products;
 }
 
 async function getProduct(id) {
     const product = productModel.Product
-                                .findById(id);
+                                .findById(id)
+                                .populate('merchant');
 
     return await product;
 }
@@ -23,16 +25,14 @@ async function getProductsByType(type, pageNumber = 1, pageSize = 10) {
                                 .find({ type: type })
                                 .skip((pageNumber - 1) * pageSize)
                                 .limit(pageSize)
-                                .sort({created_at: -1});
+                                .sort({created_at: -1})
+                                .populate('merchant');
 
     return await products;
 }
 
 async function createProduct(params) {
-    const product = new productModel.Product({
-        name: params.name,
-        type: params.type
-    });
+    const product = new productModel.Product(params);
 
     return await product.save();
 }
