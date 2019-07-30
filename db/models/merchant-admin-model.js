@@ -1,7 +1,7 @@
 const {mongoose} = require('../db-connection');
 
-const merchantSchema = new mongoose.Schema({
-    name: {
+const merchantAdminSchema = new mongoose.Schema({
+    fullname: {
         type: String, 
         required: true,
         minlength: 3,
@@ -25,14 +25,25 @@ const merchantSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 50
     },
-    logo: {type: String},
-    confirmation_token: {type: String},
+    password: {
+        type: String,
+        required: true,
+        minlength: 8,
+        maxlength: 1024
+    },
+    merchant: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Merchant',
+        required: true
+    },
+    display_picture: {type: String},
+    password_reset_token: {type: String},
     active: {type: Boolean, default: true},
-    confirmed_at: {type: Date, default: null},
+    is_super_admin: {type: Boolean, default: false},
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now},
 });
 
-const Merchant = mongoose.model('Merchant', merchantSchema);
+const MerchantAdmin = mongoose.model('MerchantAdmin', merchantAdminSchema);
 
-module.exports.Merchant = Merchant;
+module.exports.MerchantAdmin = MerchantAdmin;

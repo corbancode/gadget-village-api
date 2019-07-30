@@ -43,7 +43,13 @@ const productSchema = new mongoose.Schema({
     
     merchant: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Merchant'
+        ref: 'Merchant', 
+        required: true
+    },
+    merchant_admin: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'MerchantAdmin', 
+        required: true
     },
     //category
     //sub_category

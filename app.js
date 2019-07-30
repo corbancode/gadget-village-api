@@ -6,6 +6,7 @@ const cookieparser = require('cookie-parser');
 const bodyparser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const products = require('./routes/products');
+const merchants = require('./routes/merchants');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -55,6 +56,7 @@ app.use((req, res, next) => {
 );
 
 app.use('/api/v1/products', products);
+app.use('/api/v1/merchants', merchants);
 
 app.get('/', (req, res) => {
     res.send('Hello World');
