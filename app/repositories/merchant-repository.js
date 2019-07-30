@@ -15,7 +15,8 @@ async function getMerchant(id) {
 
 async function merchantExists(email, phone_number) {
     const merchant = await merchantModel.Merchant
-                                .findOne({email: email, phone_number: phone_number});
+                                .findOne()
+                                .or([{email: email}, {phone_number: phone_number}]);
     return merchant;
 }
 
