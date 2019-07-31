@@ -51,8 +51,8 @@ const productSchema = new mongoose.Schema({
         ref: 'MerchantAdmin', 
         required: true
     },
-    //category
-    //sub_category
+    // category
+    // sub_category
     // merchant_id
     // merchant_admin_id
 

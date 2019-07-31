@@ -1,5 +1,6 @@
 const config = require('config');
 const express = require('express');
+const cors = require('cors');
 const morgan = require('morgan', 'combined');
 const compression = require('compression');
 const cookieparser = require('cookie-parser');
@@ -10,7 +11,7 @@ const merchants = require('./routes/merchants');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-
+app.use(cors());
 app.use(fileUpload({
     limits: { fileSize: 50 * 1024 * 1024 },
 }));

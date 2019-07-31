@@ -15,6 +15,8 @@ const validateCreateProduct = (body) => {
         bidding_increment: Joi.number(),
         bidding_start_date: Joi.date().min('now'),
         bidding_end_date: Joi.date().min(body.bidding_start_date),
+        merchant: Joi.string().optional(),
+        merchant_admin: Joi.string().optional(),
     });
     
     return new Promise((resolve, reject) => {
@@ -32,7 +34,13 @@ const validateCreateProduct = (body) => {
 const validateUpdateProduct = (body) => {
     const productSchema = Joi.object().keys({
         name: Joi.string().min(3).max(30).required(),
-        type: Joi.string().required().only(productTypes)
+        type: Joi.string().required().only(productTypes),
+        description: Joi.string().min(25).required(),
+        price: Joi.number().min(0).required(),
+        payment_method: Joi.string().required().only(paymentMethods),
+        bidding_increment: Joi.number(),
+        bidding_start_date: Joi.date().min('now'),
+        bidding_end_date: Joi.date().min(body.bidding_start_date),
     });
     
     return new Promise((resolve, reject) => {
