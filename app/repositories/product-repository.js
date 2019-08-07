@@ -7,7 +7,7 @@ async function getProducts(pageNumber = 1, pageSize = 10) {
                                 .skip((pageNumber - 1) * pageSize)
                                 .limit(pageSize)
                                 .sort({created_at: -1})
-                                .populate(['merchant', 'merchant_admin']);
+                                .populate(['merchant', 'merchant_admin', 'category', 'sub_category']);
 
     return await products;
 }
@@ -15,7 +15,7 @@ async function getProducts(pageNumber = 1, pageSize = 10) {
 async function getProduct(id) {
     const product = productModel.Product
                                 .findById(id)
-                                .populate(['merchant', 'merchant_admin']);
+                                .populate(['merchant', 'merchant_admin', 'category', 'sub_category']);
 
     return await product;
 }
@@ -26,7 +26,7 @@ async function getProductsByType(type, pageNumber = 1, pageSize = 10) {
                                 .skip((pageNumber - 1) * pageSize)
                                 .limit(pageSize)
                                 .sort({created_at: -1})
-                                .populate(['merchant', 'merchant_admin']);
+                                .populate(['merchant', 'merchant_admin', 'category', 'sub_category']);
 
     return await products;
 }

@@ -8,6 +8,8 @@ const bodyparser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const products = require('./routes/products');
 const merchants = require('./routes/merchants');
+const categories = require('./routes/categories');
+const subCategories = require('./routes/sub-categories');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -58,6 +60,8 @@ app.use((req, res, next) => {
 
 app.use('/api/v1/products', products);
 app.use('/api/v1/merchants', merchants);
+app.use('/api/v1/categories', categories);
+app.use('/api/v1/sub-categories', subCategories);
 
 app.get('/', (req, res) => {
     res.send('Hello World');

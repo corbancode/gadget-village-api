@@ -51,10 +51,16 @@ const productSchema = new mongoose.Schema({
         ref: 'MerchantAdmin', 
         required: true
     },
-    // category
-    // sub_category
-    // merchant_id
-    // merchant_admin_id
+    category: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Category', 
+        required: true
+    },
+    sub_category: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'SubCategory', 
+        required: true
+    },
 
     // For Auctions
     bidding_start_date: {type: Date, required: function() {

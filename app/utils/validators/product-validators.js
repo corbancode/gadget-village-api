@@ -17,6 +17,8 @@ const validateCreateProduct = (body) => {
         bidding_end_date: Joi.date().min(body.bidding_start_date),
         merchant: Joi.string().optional(),
         merchant_admin: Joi.string().optional(),
+        category: Joi.string().optional(),
+        sub_category: Joi.string().optional(),
     });
     
     return new Promise((resolve, reject) => {
@@ -41,6 +43,8 @@ const validateUpdateProduct = (body) => {
         bidding_increment: Joi.number(),
         bidding_start_date: Joi.date().min('now'),
         bidding_end_date: Joi.date().min(body.bidding_start_date),
+        category: Joi.string().optional(),
+        sub_category: Joi.string().optional(),
     });
     
     return new Promise((resolve, reject) => {
