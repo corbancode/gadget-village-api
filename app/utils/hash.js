@@ -6,4 +6,11 @@ async function hash(value) {
     return hashed;
 }
 
+async function compare(password, hashedPassword) {
+    const result = await bcrypt.compare(password, hashedPassword);
+    console.log(result);
+    return result;
+}
+
 module.exports.hash = hash;
+module.exports.compare = compare;

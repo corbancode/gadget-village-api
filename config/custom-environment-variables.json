@@ -4,5 +4,8 @@
     },
     "db": {
         "password": "app_db_password"
+    },
+    "jwt": {
+        "secret_key": "app_jwt_secret_key"
     }
 }

@@ -6,6 +6,7 @@ const validateCreateMerchant = (body) => {
         name: Joi.string().min(3).max(150).required(),
         email: Joi.string().email({ minDomainAtoms: 2 }).min(5).max(256).required(),
         password: Joi.string().min(8).max(256).required(),
+        password_confirmation: Joi.any().valid(Joi.ref('password')).required().options({language: {any: {allowOnly: 'must match password'}}}),
         phone_number: Joi.string().regex(/^[0]+[0-9]{10}$/).min(5).max(50).required(),
         logo: Joi.string().optional(),
     });

@@ -21,9 +21,11 @@
     "express-fileupload": "^1.1.5",
     "fawn": "^2.1.5",
     "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mail": "^0.2.3",
     "mongoose": "^5.6.2",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "rotating-file-stream": "^1.4.3"
   }
 }

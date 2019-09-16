@@ -19,6 +19,17 @@ const categoryResponseMessages = {
     subCategoryDeleteFailed: "Failed to delete sub-category!",
 }
 
+const authResponseMessages = {
+    sessionCreated: "Session successfully created!",
+    sessionDeleted: "Session successfully deleted!",
+    sessionCreateFailed: "You entered a wrong email or password!",
+    passwordReset: "Your password has been reset. Follow the instructions in your email to change your password!",
+    passwordChanged: "Your password has been successfully changed!",
+    authorisationFailed: "Access Denied! Please login to continue.",
+    invalidAuthorisationToken: "Invalid token."
+}
+
 module.exports.productResponseMessages = productResponseMessages;
 module.exports.merchantResponseMessages = merchantResponseMessages;
 module.exports.categoryResponseMessages = categoryResponseMessages;
+module.exports.authResponseMessages = authResponseMessages;

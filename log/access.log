@@ -1,0 +1,1 @@
+::1 - - [10/Sep/2019:16:48:16 +0000] "POST /api/v1/merchants/auth/session HTTP/1.1" 200 69 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"

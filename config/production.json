@@ -11,5 +11,8 @@
         "wwwredirecto": false
     },
     "productTypes": ["auction", "buy now pay later", "buy now"],
-    "paymentMethods": ["pay online", "pay on delivery", "both"]
+    "paymentMethods": ["pay online", "pay on delivery", "both"],
+    "jwt": {
+        "expiresIn": "2h"
+    }
 }

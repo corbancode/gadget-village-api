@@ -6,6 +6,8 @@ const productRepository = require('../repositories/product-repository');
 async function create(req, res) {
     validateCreateProduct(req.body).then((succ) => {
         const product = req.body;
+        product.merchant_admin = req.user._id;
+        product.merchant = req.user.merchant;
         productRepository.createProduct(product).then((data) => {
             successResponseMsg(res, productResponseMessages.productCreated, data);
         }, (err) => {

@@ -10,5 +10,13 @@ const successResponseMsg = (res, message, data) => res.status(200).json({
     data,
 });
 
+const sessionSuccessResponseMsg = (res, message, token, data) => res.status(200).json({
+    status: "success",
+    token,
+    message,
+    data,
+});
+
 module.exports.errorResponseMsg = errorResponseMsg;
 module.exports.successResponseMsg = successResponseMsg;
+module.exports.sessionSuccessResponseMsg = sessionSuccessResponseMsg;
