@@ -2,7 +2,8 @@ const productResponseMessages = {
     productCreated: "Product successfully created!",
     productUpdated: "Product successfully updated!",
     productDeleted: "Product successfully deleted!",
-    productDeleteFailed: "Failed to delete product!"
+    productDeleteFailed: "Failed to delete product!",
+    noPhotoUploaded: "Please upload at least one photo to continue"
 }
 
 const merchantResponseMessages = {

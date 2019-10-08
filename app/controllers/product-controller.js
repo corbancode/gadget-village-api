@@ -2,13 +2,16 @@ const {validateCreateProduct, validateUpdateProduct} = require('../utils/validat
 const {successResponseMsg, errorResponseMsg} = require('../utils/response');
 const {productResponseMessages} = require('../utils/response-messages');
 const productRepository = require('../repositories/product-repository');
+const {clearUploadedFiles} = require('../utils/file-uploader');
 
 async function create(req, res) {
+    const noOfFilesUploaded = req.files.length;
+    if (noOfFilesUploaded < 1) errorResponseMsg(res, 400, productResponseMessages.noPhotoUploaded);
     validateCreateProduct(req.body).then((succ) => {
         const product = req.body;
         product.merchant_admin = req.user._id;
         product.merchant = req.user.merchant;
-        productRepository.createProduct(product).then((data) => {
+        productRepository.createProduct(product, req.files).then((data) => {
             successResponseMsg(res, productResponseMessages.productCreated, data);
         }, (err) => {
             const errorMessage = err.errors ? err.errors[Object.keys(err.errors)[0]]['message'] : err.message;
@@ -19,8 +22,10 @@ async function create(req, res) {
         });
         
     }, (err) => {
+        clearUploadedFiles(req.files);
         errorResponseMsg(res, 400, err.message);
     }).catch((err) => {
+        clearUploadedFiles(req.files);
         errorResponseMsg(res, 400, err.message);
     });
 }

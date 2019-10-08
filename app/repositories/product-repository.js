@@ -1,5 +1,5 @@
 const productModel = require('../../db/models/product-model');
-
+const {uploadProductAvatars, deleteProductAvatars} = require('../utils/file-uploader');
 
 async function getProducts(pageNumber = 1, pageSize = 10) {
     const products = productModel.Product
@@ -31,10 +31,13 @@ async function getProductsByType(type, pageNumber = 1, pageSize = 10) {
     return await products;
 }
 
-async function createProduct(params) {
+async function createProduct(params, files) {
+    const avatars = await uploadProductAvatars(files);
+    params.avatars = avatars;
     const product = new productModel.Product(params);
 
-    return await product.save();
+    return product.save();
+    
 }
 
 async function updateProduct(id, params) {
@@ -57,6 +60,10 @@ async function deactivateProduct(id) {
 }
 
 async function deleteProduct(id) {
+    const product = productModel.Product
+                                .findById(id)
+    const result = await product;
+    deleteProductAvatars(result.avatars);
     const result = productModel.Product.findByIdAndRemove(id);
     return await result;
 }

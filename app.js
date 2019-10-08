@@ -7,8 +7,6 @@ const path = require('path');
 const rfs = require('rotating-file-stream');
 const compression = require('compression');
 const cookieparser = require('cookie-parser');
-const bodyparser = require('body-parser');
-const fileUpload = require('express-fileupload');
 const auth = require('./routes/auth');
 const merchantAuth = require('./routes/merchant-auth');
 const users = require('./routes/users');
@@ -16,6 +14,13 @@ const products = require('./routes/products');
 const merchants = require('./routes/merchants');
 const categories = require('./routes/categories');
 const subCategories = require('./routes/sub-categories');
+
+global.appRoot = path.resolve(__dirname);
+// Create Uploads and Tmps folder if they don't exist
+const dir = path.join(appRoot, './uploads');
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+}
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -27,13 +32,8 @@ if (!config.get('jwt.secret_key')) {
   process.exit(1);
 }
 app.use(cors());
-app.use(fileUpload({
-    limits: { fileSize: 50 * 1024 * 1024 },
-}));
 app.use(compression());
 app.use(cookieparser());
-app.use(bodyparser.urlencoded({ extended: true }));
-app.use(bodyparser.json({ extended: true }));
 if (app.get('env') === 'development') {
     app.use(morgan());
     console.log('App is running in development');
@@ -52,7 +52,7 @@ if (app.get('env') === 'development') {
   // setup the logger
   app.use(morgan('combined', { stream: accessLogStream }))
 }
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "./public")));
 
 const redirectowww = config.get('domain.redirectowww');
 const redirectohttps = config.get('domain.redirectohttps');
@@ -93,6 +93,10 @@ app.use('/api/v1/merchants', merchants);
 app.use('/api/v1/categories', categories);
 app.use('/api/v1/sub-categories', subCategories);
 
+// Load a file uploaded to uploads
+app.get("/files/:file", (req, res) => {
+  res.sendFile(path.join(__dirname, `./uploads/${req.params.file}`));
+});
 app.get('/', (req, res) => {
     res.send('Hello World');
 });

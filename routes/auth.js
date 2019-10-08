@@ -1,28 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../app/controllers/auth-controller');
+const auth = require('./middleware/auth');
+const bodyParser = require('body-parser');
+// create application/json parser
+const jsonParser = bodyParser.json();
 
-router.get('/', (req, res) => {
-    authController.getProducts(req, res);   
+router.post('/session', jsonParser, (req, res) => {
+    authController.createSession(req, res);   
 });
 
-router.get('/:id', (req, res) => {
-    authController.getProduct(req, res);   
+router.delete('/session', jsonParser, auth, (req, res) => {
+    authController.deleteSession(req, res);   
 });
 
-router.get('/type/:type', (req, res) => {
-    authController.getByType(req, res); 
+router.post('/password/reset, jsonParser', (req, res) => {
+    authController.passwordReset(req, res); 
 });
 
-router.post('/', (req, res) => {
-    authController.create(req, res);    
+router.post('/reset/password', jsonParser, (req, res) => {
+    authController.resetPassword(req, res);    
 });
 
-router.put('/:id', (req, res) => {
+router.post('/confirm', jsonParser, (req, res) => {
     authController.update(req, res);    
-});
-
-router.delete('/:id', (req, res) => {
-    authController.remove(req, res);    
 });
 module.exports = router;
