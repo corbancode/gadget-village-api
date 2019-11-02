@@ -94,7 +94,7 @@ app.use('/api/v1/categories', categories);
 app.use('/api/v1/sub-categories', subCategories);
 
 // Load a file uploaded to uploads
-app.get("/files/:file", (req, res) => {
+app.get("/api/v1/files/:file", (req, res) => {
   res.sendFile(path.join(__dirname, `./uploads/${req.params.file}`));
 });
 app.get('/', (req, res) => {
