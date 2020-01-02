@@ -10,7 +10,7 @@ const validateCreateCategory = (body) => {
             if (err) {
                 reject(new Error(err.details[0]['message']));
             } else {
-                resolve();
+                resolve(true);
             }
         });  // err === null -> valid
     });
@@ -28,7 +28,7 @@ const validateCreateSubCategory = (body) => {
             if (err) {
                 reject(new Error(err.details[0]['message']));
             } else {
-                resolve();
+                resolve(true);
             }
         });  // err === null -> valid
     });

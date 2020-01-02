@@ -1,18 +1,15 @@
 const mongoose = require('mongoose');
-const dbDebugger = require('debug')('app:db');
+const { logger } = require('../app/utils/logger');
 const config = require('config');
 
 
 mongoose.connect(`mongodb+srv://gadget_village:${encodeURI(config.get('db.password'))}@gadgetvillage-z7ykd.mongodb.net/test?retryWrites=true&w=majority`, (err) => {
     if (err) {
-        console.log(err)
+        throw new Error('Database connection failed', err);
     }    
 })
 .then((succ) => {
-    dbDebugger('Database Connected');
-})
-.catch((err) => {{
-    dbDebugger(err);
-}});
+    logger.info('Database Connected');
+});
 
 module.exports.mongoose = mongoose;
