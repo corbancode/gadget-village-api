@@ -1,0 +1,32 @@
+{"message":"Database Connected","level":"info","service":"your-service-name","timestamp":"2020-01-02 12:41:21"}
+{"message":"Database Connected","level":"info","service":"your-service-name","timestamp":"2020-01-02 12:46:36"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:47:10"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:48:45"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:48:48"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:49:38"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:49:39"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:49:41"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:53:31"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:53:33"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:53:35"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:53:39"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:53:41"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:53:43"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:56:41"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:56:43"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:56:45"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:58:27"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:58:28"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:58:31"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:58:37"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:58:38"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 12:58:41"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:00:18"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:00:19"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:00:22"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:02:25"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:02:26"}
+{"service":"gadget-village-app","level":"error","message":"Got an unhandled rejectionDatabase connection failed","stack":"Error: Database connection failed\n    at mongoose.connect (C:\\Apps\\Ay\\GadgetVillage\\gadget-village-api\\db\\db-connection.js:8:15)\n    at $initialConnection.$initialConnection.then.err (C:\\Apps\\Ay\\GadgetVillage\\gadget-village-api\\node_modules\\mongoose\\lib\\connection.js:676:14)","timestamp":"2020-01-02 13:02:26"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:03:26"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:03:28"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:03:31"}
