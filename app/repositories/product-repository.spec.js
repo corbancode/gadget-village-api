@@ -10,7 +10,7 @@ describe('get product', () => {
 
 describe('get products', () => {
     it('should return an array with contains products', async () => {
-        await expect(getProducts(1, 2)).resolves.length..toBeGreaterThanOrEqual(0);
+        await expect(getProducts(1, 2)).resolves.length.toBeGreaterThanOrEqual(0);
     });
 
 });
