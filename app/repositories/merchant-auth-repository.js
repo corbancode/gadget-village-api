@@ -12,7 +12,7 @@ async function findToken(_id, token) {
                                 .findById({_id});
     if (!user) return false;
     const userTokens = user.tokens;
-    return userTokens.includes(token);
+    return userTokens.includes(token) ? user : false;
 }
 
 module.exports.findByEmail = findByEmail;

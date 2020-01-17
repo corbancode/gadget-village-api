@@ -73,15 +73,13 @@ async function resetPassword(req, res) {
 }
 
 async function deleteSession(req, res) {
-    /* merchantAuthRepository.removeCategory(req.params.id).then((data) => {
-        if (data) {
-            successResponseMsg(res, authResponseMessages.sessionDeleted);
-        } else {
-            errorResponseMsg(res, 200, authResponseMessages.merchantAuthDeleteFailed);
-        }
-    }, (err) => {
-        errorResponseMsg(res, 200, err.message);
-    }); */
+    findByEmail(req.user.email).then((data) => {
+        const token = data.removeAuthToken(req.token);
+        sessionSuccessResponseMsg(res, authResponseMessages.sessionDeleted, token, merchantView(data));
+    }).catch((err) => {
+        const errorMessage = err.errors ? err.errors : err.message;
+        errorResponseMsg(res, 200, errorMessage);
+    });
 }
 
 module.exports.createSession = createSession;

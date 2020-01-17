@@ -6,4 +6,11 @@ function merchantView(data) {
     ]);
 }
 
+function userView(data) {
+    return _.pick(data, [
+        '_id', 'fullname', 'username', 'date_of_birth', 'email', 'phone_number', 'display_picture', 'created_at', 'updated_at', 'active'
+    ]);
+}
+
 module.exports.merchantView = merchantView;
+module.exports.userView = userView;

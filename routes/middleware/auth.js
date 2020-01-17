@@ -10,8 +10,9 @@ module.exports = function (req, res, next) {
     try {
         const decoded = jwt.verify(token, config.get('jwt.secret_key'));
         findToken(decoded._id, token).then((user) => {
-            if (!value) errorResponseMsg(res, 401, authResponseMessages.invalidAuthorisationToken);
+            if (!user) errorResponseMsg(res, 401, authResponseMessages.invalidAuthorisationToken);
             req.user = user;
+            req.token = token;
             next();
         }).catch((err) => {
             errorResponseMsg(res, 401, authResponseMessages.invalidAuthorisationToken);
