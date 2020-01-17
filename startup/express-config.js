@@ -6,6 +6,7 @@ const rfs = require('rotating-file-stream');
 const express = require('express');
 const cors = require('cors');
 const compression = require('compression');
+const helmet = require('helmet');
 const cookieparser = require('cookie-parser');
 const bodyparser = require('body-parser');
 const { logger } = require('../app/utils/logger');
@@ -15,6 +16,7 @@ module.exports = function (app) {
     app.use(fileUpload({
         limits: { fileSize: 50 * 1024 * 1024 },
     }));
+    app.use(helmet());
     app.use(compression());
     app.use(cookieparser());
     app.use(bodyparser.urlencoded({ extended: true }));
