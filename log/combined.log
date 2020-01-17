@@ -35,3 +35,6 @@
 {"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:34:20"}
 {"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:54:55"}
 {"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:55:54"}
+{"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-17 12:11:28"}
+{"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-17 12:11:30"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-17 12:11:33"}
