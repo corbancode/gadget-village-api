@@ -1,4 +1,4 @@
-const { validateCreateCategory, validateCreateSubCategory } = require('./category-validator');
+const { validateCreateCategory, validateCreateSubCategory } = require('../../../../app/utils/validators/category-validator');
 
 describe('validate create category', () => {
     it('should resolve to true if name is more than 3 characters and less than 256 characters', () => {

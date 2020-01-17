@@ -1,0 +1,18 @@
+{
+    "name": "Gadget Village",
+    "mail": {
+        "host": "smtp.domain.com",
+        "port": 26,
+        "username": "me@domain.com"
+    },
+    "domain": {
+        "redirectowww": false,
+        "redirectohttps": false,
+        "wwwredirecto": true
+    },
+    "productTypes": ["auction", "buy now pay later", "buy now"],
+    "paymentMethods": ["pay online", "pay on delivery", "both"],
+    "jwt": {
+        "expiresIn": "2h"
+    }
+}

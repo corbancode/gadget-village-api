@@ -30,3 +30,8 @@
 {"message":"App is running in development","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:03:26"}
 {"message":"listening on http://localhost:3000!","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:03:28"}
 {"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-02 13:03:31"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:23:22"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:31:12"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:34:20"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:54:55"}
+{"message":"Database Connected","level":"info","service":"gadget-village-app","timestamp":"2020-01-15 16:55:54"}

@@ -1,3 +1,5 @@
 {
-    "name": "Gadget Village"
+    "name": "Gadget Village",
+    "productTypes": ["auction", "buy now pay later", "buy now"],
+    "paymentMethods": ["pay online", "pay on delivery", "both"]
 }
